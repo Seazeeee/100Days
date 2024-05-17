@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
         "elif"
-    ]
+    ],
+    "python.REPL.enableREPLSmartSend": false
     
 }
