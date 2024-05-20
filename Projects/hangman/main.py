@@ -53,3 +53,5 @@ while not end_game:
 
     print(" ".join(display))
     print(hangman_art.stages[lives])
+
+print(f"The word was {chosen_word}.")

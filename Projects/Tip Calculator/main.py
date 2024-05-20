@@ -16,7 +16,6 @@ tip_percent = int(input("How much would you like to tip? (12, 15, 20) ")) / 100
 amount_people = int(input("How many people to split the bill? "))
 
 total_amount = ( total_bill / amount_people) * (1 + tip_percent)
-
 total = f"Each person should pay: ${total_amount:.2f}"
 
 print(total)
