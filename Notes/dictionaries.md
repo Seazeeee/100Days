@@ -105,7 +105,7 @@ travel_log = [
         "total_visits": 12
     },
     {
-        "country", "Germany",
+        "country": "Germany",
         "cities_visited": ["Berlin", "Hamburg", "Stuttgart"],
         "total_visits": 5
     },
