@@ -1,17 +1,29 @@
 from art import logo
+
+
 # Add
 def add(num1, num2):
     return num1 + num2
+
+
 # Subtract
 def subtract(num1, num2):
     return num1 - num2
+
+
 # Multiply
 def multiply(num1, num2):
     return num1 * num2
+
+
 # Divide
 def divide(num1, num2):
     return num1 / num2
+
+
 operations = {"+": add, "-": subtract, "*": multiply, "/": divide}
+
+
 def calculator():
     print(logo)
     num1 = float(input("What's the first number?: "))
@@ -34,4 +46,6 @@ def calculator():
         else:
             continue_bool = False
             calculator()
+
+
 calculator()
