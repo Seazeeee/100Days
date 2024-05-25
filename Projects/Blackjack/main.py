@@ -134,7 +134,7 @@ def blackjack():
             card_list[0]["user"].append(new_card)
             recursion_total_user = sum(card_list[0]["user"])
 
-            if sum(card_list[-1]["computer"]) < 18:
+            if sum(card_list[-1]["computer"]) < 17:
                 dealer_new_card = get_card()
                 card_list[-1]["computer"].append(dealer_new_card)
                 recursion_total_dealer = sum(card_list[-1]["computer"])
@@ -226,7 +226,7 @@ def blackjack():
             recursion_total_user = sum(card_list[0]["user"])
             recursion_total_dealer = sum(card_list[-1]["computer"])
 
-            while sum(card_list[-1]["computer"]) < 18:
+            while sum(card_list[-1]["computer"]) < 17:
                 dealer_new_card = get_card()
                 card_list[-1]["computer"].append(dealer_new_card)
                 recursion_total_dealer = sum(card_list[-1]["computer"])
