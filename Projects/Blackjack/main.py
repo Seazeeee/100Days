@@ -24,7 +24,7 @@
 
 # Create a function that ask if they want to play again. | Done but sloppy
 # Check is dealer gets aces. | Have to test
-# Fix the user score inside of the 'n' portion of the if
+# Fix the user score inside of the 'n' portion of the if | Done
 
 
 # Hint 1: Go to this website and try out the Blackjack game:
@@ -91,6 +91,7 @@ def create_cardList():
 def blackjack():
 
     hit_question = True
+    aces = ace_check
     recursion_total_user = user_total
     recursion_total_dealer = dealer_total
 
@@ -100,9 +101,10 @@ def blackjack():
             card_list[0]["user"].append(new_card)
             recursion_total_user = sum(card_list[0]["user"])
 
-            dealer_new_card = get_card()
-            card_list[-1]["computer"].append(dealer_new_card)
-            recursion_total_dealer = sum(card_list[-1]["computer"])
+            if sum(card_list[-1]["computer"]) < 18:
+                dealer_new_card = get_card()
+                card_list[-1]["computer"].append(dealer_new_card)
+                recursion_total_dealer = sum(card_list[-1]["computer"])
 
             if recursion_total_user == 21:
                 print(
@@ -125,13 +127,13 @@ def blackjack():
                 hit_question = False
 
             elif recursion_total_user > 21:
-                if ace_check:
+                if aces:
                     for num in card_list[0]["user"]:
                         if num == 11:
                             get_index = card_list[0]["user"].index(num)
                             card_list[0]["user"][get_index] = 1
                             recursion_total_user = sum(card_list[0]["user"])
-                            ace_check = False
+                            aces = False
                             print("You went over 21!")
                             print(
                                 f"Your new card hand is: {card_list[0]['user']}, current score: {recursion_total_user}"
@@ -139,6 +141,7 @@ def blackjack():
                             print(
                                 f"Computers hand:  {card_list[-1]['computer']}, current score: {recursion_total_dealer}"
                             )
+                            break
                 else:
                     print(
                         f"Your final hand: {card_list[0]['user']}, final score: {recursion_total_user}"
@@ -163,6 +166,7 @@ def blackjack():
                             print(
                                 f"Computers new hand:  {card_list[-1]['computer']}, current score: {recursion_total_dealer}"
                             )
+                            break
 
                 print(
                     f"Your final hand: {card_list[0]['user']}, final score: {recursion_total_user}"
@@ -186,7 +190,10 @@ def blackjack():
 
         else:
 
-            if sum(card_list[-1]["computer"]) <= 17:
+            recursion_total_user = sum(card_list[0]["user"])
+            recursion_total_dealer = sum(card_list[-1]["computer"])
+
+            while sum(card_list[-1]["computer"]) < 18:
                 dealer_new_card = get_card()
                 card_list[-1]["computer"].append(dealer_new_card)
                 recursion_total_dealer = sum(card_list[-1]["computer"])
@@ -204,6 +211,19 @@ def blackjack():
                 print(f"It's a Draw!")
                 hit_question = False
             elif recursion_total_dealer > 21:
+                for num in card_list[-1]["computer"]:
+                        if num == 11:
+                            get_index = card_list[-1]["computer"].index(num)
+                            card_list[-1]["computer"][get_index] = 1
+                            recursion_total_dealer = sum(card_list[-1]["computer"])
+                            print("The computer went over 21!")
+                            print(
+                                f"Your card hand is: {card_list[0]['user']}, current score: {recursion_total_user}"
+                            )
+                            print(
+                                f"Computers new hand:  {card_list[-1]['computer']}, current score: {recursion_total_dealer}"
+                            )
+                            break
                 print(
                     f"Your final hand: {card_list[0]['user']}, final score: {recursion_total_user}"
                 )
