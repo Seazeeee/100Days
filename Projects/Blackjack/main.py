@@ -25,6 +25,7 @@
 # Create a function that ask if they want to play again. | Done but sloppy
 # Check is dealer gets aces. | Have to test
 # Fix the user score inside of the 'n' portion of the if | Done
+# Create DocStrings
 
 
 # Hint 1: Go to this website and try out the Blackjack game:
@@ -34,6 +35,13 @@ import random
 
 
 def get_starter_cards():
+    """Generates the starter cards for player.
+
+    Returns:
+        card1: First Card Selection
+        card2: Second Card Selection
+        total: The running sum of both cards
+    """
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
     card1 = cards[random.randint(0, len(cards) - 1)]
@@ -46,6 +54,11 @@ def get_starter_cards():
 
 
 def get_card():
+    """Gets a random card
+
+    Returns:
+        card1: A random card selection
+    """
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
     card1 = cards[random.randint(0, len(cards) - 1)]
@@ -54,7 +67,17 @@ def get_card():
 
 
 def aces(user_card1, user_card2):
+    """Check for aces in players card. Resets that card to 1 if the player wants to split. Flags if there is only one 11.
 
+    Args:
+        user_card1 (int): Generated card1 from get_starter_cards()
+        user_card2 (int): Generated card2 from get_starter_cards()
+
+    Returns:
+        user_card1 (int): The changed/unchanged card1
+        user_card2 (int): The changed/unchanged card2
+        True/False: The flag for aces
+    """
     if user_card1 == 11 and user_card2 == 11:
         ask_about_aces = input("Would you like to play one or both as '1'?: ")
 
@@ -75,6 +98,13 @@ def aces(user_card1, user_card2):
         return user_card1, user_card2, True
     
 def create_cardList():
+    """Creates a card list that houses a dictionary for user and computer with their associated cards.
+
+    Returns:
+        card_list (list): A list of dictionaries for both user and dealer that tracks their current cards
+        user_total (int): The total for user's cards
+        dealer_total (int): The total for dealer's cards
+    """
     user_card1, user_card2, user_total = get_starter_cards()
     dealer_card = get_card()
     dealer_total = dealer_card
@@ -89,6 +119,9 @@ def create_cardList():
     return card_list, user_total, dealer_total
 
 def blackjack():
+    """
+    A function that plays blackjack and allows the user to hit or not hit. Checks the total for those cards. Then, ask if they user would like to play another game.
+    """
 
     hit_question = True
     aces = ace_check
