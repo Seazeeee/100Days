@@ -35,7 +35,10 @@ lives = num_lives(difficulty_choice)
 
 
 continue_question = True
-
+#I should change this while loop to look at lives
+#it would remove the while true loop and make it more
+#coherent all around. while lives > 0:
+#Move kill to outside of loop | Remove continue_question
 while continue_question:
 
     if lives == 0:
