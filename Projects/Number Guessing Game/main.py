@@ -24,6 +24,7 @@ def num_lives(difficulty):
     else:
         return f"You have not provided a valid input for your difficulty, try again!"
 
+
 lives = 0
 print(logo)
 print("Welcome to the Number Guessing Game!")
@@ -33,35 +34,35 @@ selected_number = random_number()
 difficulty_choice = str(input("Choose a difficulty. Type 'easy' or 'hard': ")).lower()
 lives = num_lives(difficulty_choice)
 
-
-continue_question = True
-#I should change this while loop to look at lives
-#it would remove the while true loop and make it more
-#coherent all around. while lives > 0:
-#Move kill to outside of loop | Remove continue_question
-while continue_question:
-
-    if lives == 0:
-        print("You have run out of guesses, you lose.")
-        break
+while lives > 0:
 
     print(f"You have {lives} attempts remaining to guess the number.")
     user_guess = int(input("Make a guess: "))
 
     if user_guess > selected_number:
         print("Too High.")
-        print("Guess again.")
-        lives -= 1
-        continue
+        if lives == 1:
+            lives -= 1
+            continue
+        else:
+            lives -= 1
+            print("Guess again.")
+            continue
 
     elif user_guess < selected_number:
         print("Too low.")
-        print("Guess again.")
-        lives -= 1
-        continue
+        if lives == 1:
+            lives -= 1
+            continue
+        else:
+            lives -= 1
+            print("Guess again.")
+            continue
 
     else:
 
         print(f"You got it! The answer was {selected_number}")
-        continue_question = False
         break
+
+if lives == 0:
+    print("You have run out of guesses, you lose.")
