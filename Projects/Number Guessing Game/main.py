@@ -18,51 +18,58 @@ def random_number():
 def num_lives(difficulty):
 
     if difficulty == "easy":
-        return lives + 10
+        return 10
     elif difficulty == "hard":
-        return lives + 5
+        return 5
     else:
         return f"You have not provided a valid input for your difficulty, try again!"
 
 
-lives = 0
-print(logo)
-print("Welcome to the Number Guessing Game!")
-print("I'm thinking of a number between 1 and 100")
-selected_number = random_number()
+def game():
 
-difficulty_choice = str(input("Choose a difficulty. Type 'easy' or 'hard': ")).lower()
-lives = num_lives(difficulty_choice)
+    print(logo)
+    print("Welcome to the Number Guessing Game!")
+    print("I'm thinking of a number between 1 and 100")
+    selected_number = random_number()
 
-while lives > 0:
+    difficulty_choice = str(
+        input("Choose a difficulty. Type 'easy' or 'hard': ")
+    ).lower()
+    lives = num_lives(difficulty_choice)
 
-    print(f"You have {lives} attempts remaining to guess the number.")
-    user_guess = int(input("Make a guess: "))
+    while lives > 0:
 
-    if user_guess > selected_number:
-        print("Too High.")
-        if lives == 1:
-            lives -= 1
-            continue
+        print(f"You have {lives} attempts remaining to guess the number.")
+        user_guess = int(input("Make a guess: "))
+
+        if user_guess > selected_number:
+            print("Too High.")
+            if lives == 1:
+                lives -= 1
+                continue
+            else:
+                lives -= 1
+                print("Guess again.")
+                continue
+
+        elif user_guess < selected_number:
+            print("Too low.")
+            if lives == 1:
+                lives -= 1
+                continue
+            else:
+                lives -= 1
+                print("Guess again.")
+                continue
+
         else:
-            lives -= 1
-            print("Guess again.")
-            continue
 
-    elif user_guess < selected_number:
-        print("Too low.")
-        if lives == 1:
-            lives -= 1
-            continue
-        else:
-            lives -= 1
-            print("Guess again.")
-            continue
+            print(f"You got it! The answer was {selected_number}")
+            break
 
-    else:
+    if lives == 0:
+        print("You have run out of guesses, you lose.")
 
-        print(f"You got it! The answer was {selected_number}")
-        break
 
-if lives == 0:
-    print("You have run out of guesses, you lose.")
+if __name__ == "__main__":
+    game()
