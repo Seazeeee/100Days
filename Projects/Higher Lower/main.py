@@ -8,8 +8,12 @@ from art import logo, vs
 # From the data. This needs a random choice
 import random
 
+# Need OS to clear terminal.
+import os
+
 # TODO
 # Create a way to keep the logo always but remove all text on run
+
 
 def get_random_data():
 
@@ -19,7 +23,7 @@ def get_random_data():
     # Grab followers to return
     followers = random_choice["follower_count"]
 
-    final_string =  f"{random_choice['name']}, a {random_choice['description']}, from {random_choice['country']}"
+    final_string = f"{random_choice['name']}, a {random_choice['description']}, from {random_choice['country']}"
 
     # Return the string needed
     return final_string, followers
@@ -36,29 +40,8 @@ def compare_followers(a_follow_count, b_follow_count):
         return None
 
 
-# # Create a function to get choice A
-# def choice_A():
-#     a_choice, a_followers = get_random_data()
-#     print(f"Compare A: {a_choice}")
-#     print(f"Pssst.... There follower count is: {a_followers}")
-#     return a_followers
-
-
-# # Create a function to get choice B
-# def choice_B():
-#     b_choice, b_followers = get_random_data()
-#     print(f"Compare B: {b_choice}")
-#     print(f"Pssst.... There follower count is: {b_followers}")
-#     return b_followers
-
-# Create a function that replaces previous choice if correct
-
-
 # Create a main game function that will house the whole thing
 def game():
-    # Print Logo
-    print(logo)
-
     # Create a score counter
     score_counter = 0
     # Call Choice A
@@ -69,6 +52,12 @@ def game():
 
     # Create a while conditional that will run until score_counter == -1
     while score_counter != -1:
+        # Clear Terminal
+        os.system("clear")
+
+        # Print Logo
+        print(logo)
+
         # Create a conditional that prints the score once its above 0
         if score_counter > 0:
             print(f"You're Right! Current score: {score_counter}")
@@ -93,9 +82,11 @@ def game():
         user_choice = str(input("Who has more followers? Type 'A' or 'B': ")).lower()
 
         if user_choice == "a" and higher_followers == a_follow:
+            
             score_counter += 1
             # Get a new Compare B:
             b_string, b_follow = get_random_data()
+
         elif user_choice == "b" and higher_followers == b_follow:
             score_counter += 1
             # Make Compare B switch to Compare A
@@ -109,6 +100,12 @@ def game():
             # Get a new Compare A
             b_string, b_follow = get_random_data()
         else:
+            # Clear Terminal
+            os.system("clear")
+
+            # Print Logo
+            print(logo)
+
             print(f"Sorry, that's wrong. Final score: {score_counter}")
             score_counter = -1
 
