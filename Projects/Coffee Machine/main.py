@@ -284,6 +284,8 @@ def machine():
 
             print(f"Sorry there is not enough {lacking_resource}.")
 
+            resources_low = True
+
 
 if __name__ == "__main__":
 
