@@ -11,8 +11,6 @@ import random
 # Need OS to clear terminal.
 import os
 
-# TODO
-# Create a way to keep the logo always but remove all text on run
 
 
 def get_random_data():
