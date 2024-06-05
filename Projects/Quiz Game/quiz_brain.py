@@ -1,7 +1,5 @@
-# TODO: Checking if we're the end of the quiz
-
-
 class QuizBrain:
+    """The brain behind the quiz that makes it function"""
 
     def __init__(self, question_list) -> None:
         self.question_number = 0
@@ -24,7 +22,7 @@ class QuizBrain:
 
         user_answer = input(
             f"Q.{self.question_number}: {selected_q.text} (True/False)?: ")
-        
+
         self.check_answer(user_answer, selected_q.answer)
 
     def check_answer(self, user_answer, correct_answer):
