@@ -9,23 +9,6 @@
 
 import random
 
-"""
-    TODO
-
-    Create a Rock, Paper, Scissors game with the computer
-
-    Combinations:
-        Rock vs. Rock: Draw - Done
-        Rock vs. Paper: Paper wins - Done
-        Rock vs. Scissors: Rock wins - Done
-        Paper vs. Rock: Paper wins - Done
-        Paper vs. Paper: Draw - Done
-        Paper vs. Scissors: Scissors win - done
-        Scissors vs. Rock: Rock wins - Done
-        Scissors vs. Paper: Scissors win - Done
-        Scissors vs. Scissors: Draw - Done
-
-"""
 
 rock = '''
     _______

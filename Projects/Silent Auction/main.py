@@ -3,14 +3,6 @@ import os
 
 # os.systems('clear")
 
-"""
-TODO
-
-Need to work on creating more functions rather than hard coding inside 
-the main python body. 
-
-"""
-
 
 def find_highest_bidder(bid_record):
     highest_amount = 0

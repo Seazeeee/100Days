@@ -33,8 +33,6 @@ while not end_game:
     count = 0
     loose_life = False
 
-    # TODO-5: - If the letter is not in the chosen_word, print out the letter and let them know it's not in the word.
-
     for char in chosen_word:
         count += 1
         if char == guess:
