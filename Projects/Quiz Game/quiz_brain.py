@@ -5,7 +5,7 @@ class QuizBrain:
 
     def __init__(self, question_list) -> None:
         self.question_number = 0
-        self.correct = 0
+        self.score = 0
         self.question_list = question_list
 
     def still_has_questions(self) -> bool:
@@ -24,14 +24,21 @@ class QuizBrain:
 
         user_answer = input(
             f"Q.{self.question_number}: {selected_q.text} (True/False)?: ")
+        
+        self.check_answer(user_answer, selected_q.answer)
 
-        if user_answer == selected_q.answer:
-            self.correct += 1
+    def check_answer(self, user_answer, correct_answer):
+        """
+        A method that checks if the answer is right and prints out statements
+        corresponding to each.
+        """
+        if user_answer.lower() == correct_answer.lower():
+            self.score += 1
             print("You got it right!")
-            print(f"The correct answer was: {selected_q.answer}")
-            print(
-                f"Your current score is: {self.correct}/{self.question_number}"
-                )
-
         else:
-            pass
+            print("That's wrong.")
+
+        print(f"The correct answer was: {correct_answer}")
+        print(
+            f"Your current score is: {self.score}/{self.question_number} \n\n"
+        )
