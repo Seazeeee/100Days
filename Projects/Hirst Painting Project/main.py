@@ -1,6 +1,6 @@
 """To create a Hirst like Color dot painting with turtle"""
 
-import colorgram
+# import colorgram
 import random
 from turtle import Turtle, Screen
 
