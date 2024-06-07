@@ -1,7 +1,8 @@
 {
     "cSpell.words": [
         "Backrub",
-        "elif"
+        "elif",
+        "exitonclick"
     ],
     "python.REPL.enableREPLSmartSend": false
     
