@@ -2,9 +2,13 @@
 
 from turtle import Turtle
 
-
+# Creating CONSTANTS
 CORDS = [(0, 0), (-20, 0), (-40, 0)]  # Declaring CORDS variable.
-MOVE_DISTANCE = 20
+MOVE_DISTANCE = 20  # Move variable for testing.
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
 
 
 class Snake:
@@ -12,6 +16,7 @@ class Snake:
     def __init__(self):
         self.dict_turtles = {}
         self.create_snake()
+        self.head = self.dict_turtles[0]
 
     def create_snake(self):
         """
@@ -38,4 +43,24 @@ class Snake:
             new_y = forward_turtle.ycor()
             # Move the turtle behind to the new cords.
             self.dict_turtles[num_turtle].goto(x=new_x, y=new_y)
-        self.dict_turtles[0].forward(MOVE_DISTANCE)
+        self.head.forward(MOVE_DISTANCE)
+
+    def up(self):
+        """Sets heading to 90 degrees; Checks heading to verify it can."""
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
+
+    def down(self):
+        """Sets heading to 270 degrees; Checks heading to verify it can."""
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
+
+    def left(self):
+        """Sets heading to 180 degrees; Checks heading to verify it can."""
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
+
+    def right(self):
+        """Sets heading to 0 degrees; Checks heading to verify it can."""
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
