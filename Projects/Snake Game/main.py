@@ -51,10 +51,8 @@ while game_is_on:
         scoreboard.game_over()
 
     # Detect tail collision
-    for segment in snake.dict_turtles:
-        if segment == snake.head:
-            pass
-        elif snake.head.distance(segment) < 10:
+    for segment in snake.dict_turtles[1:]:
+        if snake.head.distance(segment) < 10:
             game_is_on = False
             scoreboard.game_over()
 
