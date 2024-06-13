@@ -4,7 +4,7 @@ import random
 
 
 class Food(Turtle):
-
+    """Create a food for the snake to eat."""
     def __init__(self) -> None:
         super().__init__()
         self.shape("circle")
