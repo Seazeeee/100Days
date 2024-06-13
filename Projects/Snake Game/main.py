@@ -31,12 +31,13 @@ SCREEN.onkey(snake.right, "Right")
 # Creating a for loop that keeps the game running until a condition.
 while game_is_on:
     SCREEN.update()  # Updated the screen.
-    time.sleep(0.1)  # Making the snake move at a good pace.
+    time.sleep(0.4)  # Making the snake move at a good pace.
     snake.move()  # Calling the move function that moves the snake.
 
     # Detect collision with food.
     if snake.head.distance(food) < 15:
         food.refresh()
+        snake.extend()
         scoreboard.increase_score()
 
     # Detect wall collision
@@ -48,6 +49,8 @@ while game_is_on:
     ):
         game_is_on = False
         scoreboard.game_over()
+    
+    # Detect tail collision
 
 
 SCREEN.exitonclick()

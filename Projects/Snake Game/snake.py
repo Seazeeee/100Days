@@ -14,7 +14,7 @@ RIGHT = 0
 class Snake:
     """Creates Snakes alongside making them move"""
     def __init__(self):
-        self.dict_turtles = {}
+        self.dict_turtles = []
         self.create_snake()
         self.head = self.dict_turtles[0]
 
@@ -22,15 +22,21 @@ class Snake:
         """
         Generates the starting snake
         """
-        self.index = 0
-
-        for num_index in CORDS:
+        for position in CORDS:
             # Create the different turtle methods needed; adds them to a dict.
-            self.dict_turtles[self.index] = Turtle(shape="square")
-            self.dict_turtles[self.index].penup()
-            self.dict_turtles[self.index].color("white")
-            self.dict_turtles[self.index].goto(num_index)
-            self.index += 1
+            self.add_segment(position)
+
+    def add_segment(self, position):
+        """Creates the segments for the snake"""
+        new_segment = Turtle("square")
+        new_segment.color("white")
+        new_segment.penup()
+        new_segment.goto(position)
+        self.dict_turtles.append(new_segment)
+
+    def extend(self):
+        """Extends the snake."""
+        self.add_segment(self.dict_turtles[-1].position())
 
     def move(self):
         """

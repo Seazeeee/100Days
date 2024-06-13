@@ -1,11 +1,14 @@
 """Module to create and update a scoreboard"""
+
 from turtle import Turtle
+
 ALIGN = "center"
 FONT = ("Courier", 24, "normal")
 
 
 class Scoreboard(Turtle):
     """Scoreboard creation."""
+
     def __init__(self) -> None:
         super().__init__()
         self.count = 0
