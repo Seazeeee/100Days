@@ -31,7 +31,7 @@ SCREEN.onkey(snake.right, "Right")
 # Creating a for loop that keeps the game running until a condition.
 while game_is_on:
     SCREEN.update()  # Updated the screen.
-    time.sleep(0.4)  # Making the snake move at a good pace.
+    time.sleep(0.1)  # Making the snake move at a good pace.
     snake.move()  # Calling the move function that moves the snake.
 
     # Detect collision with food.
@@ -49,8 +49,14 @@ while game_is_on:
     ):
         game_is_on = False
         scoreboard.game_over()
-    
+
     # Detect tail collision
+    for segment in snake.dict_turtles:
+        if segment == snake.head:
+            pass
+        elif snake.head.distance(segment) < 10:
+            game_is_on = False
+            scoreboard.game_over()
 
 
 SCREEN.exitonclick()
