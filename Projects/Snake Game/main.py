@@ -2,6 +2,7 @@
 import time  # To slow down the snake.
 from turtle import Screen
 from snake import Snake
+from food import Food
 
 # Set the screen settings.
 SCREEN = Screen()
@@ -12,6 +13,7 @@ SCREEN.tracer(0)  # Removes animations | Have to use SCREEN.update().
 
 # Creating the necessary variables needed for game.
 snake = Snake()
+food = Food()
 game_is_on = True
 
 
@@ -28,6 +30,10 @@ while game_is_on:
     SCREEN.update()  # Updated the screen.
     time.sleep(0.1)  # Making the snake move at a good pace.
     snake.move()  # Calling the move function that moves the snake.
+
+    # Detect collision with food.
+    if snake.head.distance(food) < 15:
+        food.refresh()
 
 
 SCREEN.exitonclick()
