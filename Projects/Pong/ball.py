@@ -11,12 +11,17 @@ class Ball(Turtle):
         self.shape("circle")
         self.penup()
         self.color("white")
-        self.move()
+        self.x_move = 10
+        self.y_move = 10
 
     def move(self):
         """
         Creates a while loop that moves the ball to the top right corner.
         """
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
+        self.goto(new_x, new_y)
 
-        self.goto(self.xcor() + 10, self.ycor() + 10)
+    def bounce(self):
 
+        self.y_move *= -1
