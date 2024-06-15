@@ -23,3 +23,5 @@ class Paddle(Turtle):
     def down(self):
         """Moves it down 20 units"""
         self.goto(self.xcor(), self.ycor() - 20)
+
+    
