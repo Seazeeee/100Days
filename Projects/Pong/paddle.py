@@ -6,12 +6,13 @@ from turtle import Turtle
 class Paddle(Turtle):
     """Class that creates paddles"""
 
-    def __init__(self) -> None:
+    def __init__(self, cords) -> None:
         super().__init__()
-        self.goto(x=350, y=0)
+        self.goto(x=cords[0], y=cords[-1])
         self.shape("square")
         self.shapesize(stretch_wid=5, stretch_len=1)
         self.penup()
+        self.speed("fastest")
         self.color("white")
 
     def up(self):
