@@ -28,7 +28,7 @@ SCREEN.onkey(l_paddle.up, "w")
 SCREEN.onkey(l_paddle.down, "s")
 
 while game_is_on:
-    time.sleep(0.1)  # slow the game down
+    time.sleep(ball.speed_num)  # slow the game down
     SCREEN.update()
     ball.move()
     ball.paddle_miss()
