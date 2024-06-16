@@ -1,9 +1,10 @@
 """A Module that creates a Pong Game."""
 
+import time
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
-import time
+
 
 # Creating the SCreen.
 SCREEN = Screen()
@@ -30,6 +31,7 @@ while game_is_on:
     time.sleep(0.1)  # slow the game down
     SCREEN.update()
     ball.move()
+    ball.paddle_miss()
 
     # Collision Detection with Wall
 

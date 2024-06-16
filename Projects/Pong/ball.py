@@ -30,3 +30,10 @@ class Ball(Turtle):
         """Paddle Bounce."""
 
         self.x_move *= -1
+
+    def paddle_miss(self):
+        """Detects if the balls passes the paddle"""
+
+        if self.xcor() >= 380 or self.xcor() <= -380:
+            self.goto(0, 0)
+            self.paddle_bounce()
