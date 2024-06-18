@@ -23,3 +23,9 @@ day. Hopefully I can pick that pace back up and start my other course at day 20 
 deal with mySQL. I will be creating another repo that houses that information and progress
 as well to slowly build up my GitHub Profile. Just mentally pushing forward are you have 
 too.
+
+### 6/18/24
+- Progress has slowed sown tremendously with the start of summer classes. However, I am still
+focusing on trying to at least open up VSCode everyday and right something. I have also started
+mySQL which is taking up more of my time. Im going to keep pushing myself forward because I
+believe I am improving on all my skills. Hopeful to have a better resume by the end of the summer.
