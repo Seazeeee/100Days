@@ -1,3 +1,4 @@
+"""Module that handles the main method for the game."""
 import time
 from turtle import Screen
 from player import Player
@@ -13,6 +14,7 @@ SCREEN.tracer(0)
 SCREEN.listen()
 player = Player()
 cars = CarManager()
+scoreboard = Scoreboard()
 
 SCREEN.onkey(player.up, "Up")
 
@@ -22,5 +24,19 @@ while game_is_on:
     SCREEN.update()
     cars.move()
     cars.reset()
+
+    # Checks for win.
+    if player.win():
+        scoreboard.increase_score()
+        cars.speed_up()
+        print(cars.movement_speed)
+
+    # Checks for player and car collision
+    for car in cars.cars_list:
+        if car.distance(player) <= 23.5:
+            # Print GAME OVER with SCOREBOARD
+            scoreboard.game_over()
+            SCREEN.mainloop()
+            game_is_on = False
 
 SCREEN.exitonclick()

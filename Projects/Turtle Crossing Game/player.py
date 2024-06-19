@@ -1,3 +1,4 @@
+"""Module that create and manages the player."""
 from turtle import Turtle
 
 
@@ -7,6 +8,7 @@ FINISH_LINE_Y = 280
 
 
 class Player(Turtle):
+    """Creates and moves the player."""
 
     def __init__(self) -> None:
         super().__init__()
@@ -20,6 +22,9 @@ class Player(Turtle):
         self.goto(x=self.xcor(), y=self.ycor() + MOVE_DISTANCE)
 
     def win(self):
+        """
+        Resets the turtle and returns True to verify function in main.py
+        """
         if self.ycor() == FINISH_LINE_Y:
-            self.reset()
-            # Increase scoreboard | Increase car speed
+            self.goto(STARTING_POSITION)
+            return True
