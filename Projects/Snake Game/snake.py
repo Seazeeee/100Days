@@ -70,3 +70,11 @@ class Snake:
         """Sets heading to 0 degrees; Checks heading to verify it can."""
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
+
+    def reset(self):
+        """Resets the snake completely."""
+        for seg in self.dict_turtles:
+            seg.goto(1000, 1000)
+        self.dict_turtles.clear()
+        self.create_snake()
+        self.head = self.dict_turtles[0]

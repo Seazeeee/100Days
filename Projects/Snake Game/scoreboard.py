@@ -12,6 +12,7 @@ class Scoreboard(Turtle):
     def __init__(self) -> None:
         super().__init__()
         self.count = 0
+        self.high_score = 0
         self.hideturtle()
         self.penup()
         self.color("gray")
@@ -21,8 +22,9 @@ class Scoreboard(Turtle):
 
     def update_scoreboard(self):
         """The string generation for scoreboard."""
+        self.clear()
         self.write(
-            arg=f"Score: {self.count}",
+            arg=f"Score: {self.count} - High Score: {self.high_score}",
             align=ALIGN,
             font=FONT,
         )
@@ -33,13 +35,21 @@ class Scoreboard(Turtle):
         self.clear()
         self.update_scoreboard()
 
-    def game_over(self):
-        """
-        Print out game over.
-        """
-        self.goto(0, 0)
-        self.write(
-            arg="GAME OVER",
-            align=ALIGN,
-            font=FONT,
-        )
+    def reset(self):
+        """New reset method that checks for high-score."""
+
+        if self.count > self.high_score:
+            self.high_score = self.count
+        self.count = 0
+        self.update_scoreboard()
+
+    # def game_over(self):
+    #     """
+    #     Print out game over.
+    #     """
+    #     self.goto(0, 0)
+    #     self.write(
+    #         arg="GAME OVER",
+    #         align=ALIGN,
+    #         font=FONT,
+    #     )
