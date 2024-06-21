@@ -1,14 +1,11 @@
-# TODO: Create a letter using starting_letter.txt
+# Create a letter using starting_letter.txt
 # for each name in invited_names.txt
 # Replace the [name] placeholder with the actual name.
 # Save the letters in the folder "ReadyToSend".
 
-beginning_index = 0
-ending_index = 0
-
 with open(
-    "Projects/Mail Merging/Input/Names/invited_names.txt", encoding="utf-8"
-) as name:
+    "Projects/Mail Merging/Input/Names/invited_names.txt", encoding="utf-8",
+        mode="r") as name:
 
     contents = name.readlines()
 
