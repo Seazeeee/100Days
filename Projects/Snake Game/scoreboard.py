@@ -12,7 +12,8 @@ class Scoreboard(Turtle):
     def __init__(self) -> None:
         super().__init__()
         self.count = 0
-        self.high_score = 0
+        with open("Projects/Snake Game/data.txt", encoding="utf-8") as data:
+            self.high_score = int(data.read())
         self.hideturtle()
         self.penup()
         self.color("gray")
@@ -39,7 +40,8 @@ class Scoreboard(Turtle):
         """New reset method that checks for high-score."""
 
         if self.count > self.high_score:
-            self.high_score = self.count
+            with open("Projects/Snake Game/data.txt", encoding="utf-8", mode="w") as file:
+                file.write(f"{self.count}")
         self.count = 0
         self.update_scoreboard()
 

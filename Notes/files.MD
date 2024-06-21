@@ -81,3 +81,21 @@ with open("new_file.txt", mode = 'w') as file:
 
 ```
 
+## Paths
+
+There are files and folders.
+
+Files live within folders, and you can have folders nested within one another.
+
+_Absolute File Path_:
+
+These always start with the root. This a path that start from the origin
+
+_Relative File Path_:
+
+What if we are working in the folder above. We call this the working directory.
+
+We can use "./". This means to look inside of this directory. Followed by the path.
+
+We can also use "../" to move up one folder.
+
