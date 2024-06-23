@@ -23,5 +23,5 @@ with open(
         ) as ready_to_send:
             for line in letter_template:
                 ready_to_send.write(
-                    line.replace("[name]", name_needed.strip())
+                        line.replace("[name]", name_needed.strip())
                     )
