@@ -20,3 +20,7 @@
 # print(temperatures)
 
 import pandas
+
+data = pandas.read_csv("Projects/csv_example/weather_data.csv")
+print(type(data))
+# print(data["temp"])

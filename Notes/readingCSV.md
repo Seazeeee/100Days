@@ -44,3 +44,22 @@ print(temperatures)
 ```
 
 ## Pandas
+
+Pandas is a library that works with tabular data as well and houses powerful in-built functionalities for these files.
+
+Below is an example of how we would use Pandas to access this data.
+
+```python
+import pandas
+
+data = pandas.read_csv("Projects/csv_example/weather_data.csv")
+print(data["temp"])
+```
+
+### Dataframe
+
+Similar to a excel spreadsheet.
+
+### Series
+
+Equivalent to a list or single column in an excel spreadsheet.
