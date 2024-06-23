@@ -22,5 +22,9 @@
 import pandas
 
 data = pandas.read_csv("Projects/csv_example/weather_data.csv")
-print(type(data))
-# print(data["temp"])
+# print(type(data))
+# # print(data["temp"])
+
+data_dic = data.to_dict()
+
+print(data_dic)
