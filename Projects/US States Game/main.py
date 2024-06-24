@@ -30,7 +30,7 @@ while GAME_ON:
     question_answer = question_prompt.count_prompt()
 
     # Check is the given answer to question is in our state list.
-    if question_answer in STATE_LIST:
+    if question_answer.title() in STATE_LIST:
 
         # Calls to write the states name in the given coords.
         WriteStates(question_answer)
