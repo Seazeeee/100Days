@@ -6,9 +6,9 @@ from reprompt import prompt
 
 # Setting up screen variables and background.
 BG_IMAGE = "Projects/US States Game/blank_states_img.gif"
-correct_guesses = []
+correct_guesses: list[str] = []
 question_prompt = prompt()
-game_on = True
+GAME_ON = True
 
 SCREEN = turtle.Screen()
 SCREEN.title("U.S. States Game")
@@ -21,7 +21,7 @@ DATA = df.read_csv("Projects/US States Game/50_states.csv")
 
 STATE_LIST = DATA["state"].to_list()
 
-while game_on:
+while GAME_ON:
 
     print(correct_guesses)
 
@@ -41,11 +41,11 @@ while game_on:
 
         if question_answer is None:
 
-            game_on = False
+            GAME_ON = False
             turtle.mainloop()
 
         else:
 
-            question_answer = question_prompt.wrong()
+            question_prompt.wrong()
 
             continue
