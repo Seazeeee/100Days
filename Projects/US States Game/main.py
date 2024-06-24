@@ -8,7 +8,6 @@ from reprompt import prompt
 BG_IMAGE = "Projects/US States Game/blank_states_img.gif"
 correct_guesses: list[str] = []
 question_prompt = prompt()
-GAME_ON = True
 
 SCREEN = turtle.Screen()
 SCREEN.title("U.S. States Game")
@@ -22,7 +21,7 @@ DATA = df.read_csv("Projects/US States Game/50_states.csv")
 STATE_LIST = DATA["state"].to_list()
 
 # Create a indefinite loop for the game to continue
-while GAME_ON:
+while len(correct_guesses) < 50:
     # Print out the correct guess list
     print(correct_guesses)
 
@@ -45,7 +44,6 @@ while GAME_ON:
         if question_answer is None:
 
             # If cancel is clicked we end the loop and turn the game off.
-            GAME_ON = False
             turtle.mainloop()
 
         # Else the given answer is just wrong.
