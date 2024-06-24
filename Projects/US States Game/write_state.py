@@ -1,7 +1,7 @@
 """Module that writes the state on the screen."""
 
-import pandas as df
 from turtle import Turtle
+import pandas as df
 
 ALIGN = "center"
 FONT = ("Courier", 10, "normal")
