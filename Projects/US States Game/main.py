@@ -32,18 +32,11 @@ while GAME_ON:
     # Check is the given answer to question is in our state list.
     if question_answer in STATE_LIST:
 
-        # Extra logic that returns a boolean and lets our next if run.
-        check_answer = DATA["state"][
-            DATA.state.str.lower() == str(question_answer).lower()
-        ].any()
+        # Calls to write the states name in the given coords.
+        WriteStates(question_answer)
 
-        # Checks that check answer is true and runs.
-        if check_answer:
-            # Calls to write the states name in the given coords.
-            WriteStates(question_answer)
-            
-            # Appends the name of the correct state.
-            correct_guesses.append(str(question_answer).strip().title())
+        # Appends the name of the correct state.
+        correct_guesses.append(str(question_answer).strip().title())
 
     # Checks if answer is not in the state list.
     elif question_answer not in STATE_LIST:
