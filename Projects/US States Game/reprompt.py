@@ -4,7 +4,7 @@ from turtle import Screen
 SCREEN = Screen()
 
 
-class prompt:
+class Prompt:
 
     """Houses the prompt for the guesses and keeps track of the score."""
 
