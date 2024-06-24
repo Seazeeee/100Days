@@ -36,10 +36,3 @@ class WriteStates(Turtle):
             align=ALIGN,
             font=FONT,
         )
-
-    def check_new(self, new_answer: str):
-        check_answer = DATA["state"][
-            DATA.state.str.lower() == str(new_answer).lower()
-        ].any()
-
-        return check_answer
