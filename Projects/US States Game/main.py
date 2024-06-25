@@ -1,13 +1,13 @@
 import turtle
 import pandas as df
 from write_state import WriteStates
-from reprompt import prompt
+from reprompt import Prompt
 
 
 # Setting up screen variables and background.
 BG_IMAGE = "Projects/US States Game/blank_states_img.gif"
 correct_guesses: list[str] = []
-question_prompt = prompt()
+question_prompt = Prompt()
 
 SCREEN = turtle.Screen()
 SCREEN.title("U.S. States Game")
