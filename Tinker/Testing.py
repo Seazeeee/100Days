@@ -1,18 +1,3 @@
-travel_log = [
-    {
-        "country": "France",
-        "cities_visited": ["Paris", "Lille", "Dijon"], 
-        "total_visits": 12
-    },
+range_list = [n * 2 for n in range(1, 5)]
 
-    {
-        "country": "Germany",
-        "cities_visited": ["Berlin", "Hamburg", "Stuttgart"],
-        "total_visits": 5
-    },
-]
-
-country = travel_log[0]["country"]
-cities = travel_log[0]["cities_visited"]
-
-print(f"{country} + Cities: {cities}")
+print(range_list)
