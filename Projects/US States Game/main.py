@@ -52,6 +52,12 @@ while len(correct_guesses) < 50:
         # Creating a method to break
         if question_answer.lower() == "exit":
 
+            # Finds all the missing states from answers
+            missing_states = DATA[~DATA["state"].isin(correct_guesses)]["state"]
+
+            # Takes those states and creates another CSV of "study" states.
+            missing_states.to_csv("Projects/US States Game/states_to_learn.csv")
+
             break
 
         # Runs this command tha removes a count so that the correct
@@ -60,9 +66,3 @@ while len(correct_guesses) < 50:
 
         # Continues to re-run through the loop
         continue
-
-# Finds all the missing states from answers
-missing_states = DATA[~DATA["state"].isin(correct_guesses)]["state"]
-
-# Takes those states and creates another CSV of "study" states.
-missing_states.to_csv("Projects/US States Game/states_to_learn.csv")

@@ -89,3 +89,27 @@ long_names = [name.upper() for name in names if len(name) >= 5]
 
 ```
 
+## Dictionary Comprehension
+
+```python
+
+new_dict = {new_key:new_value for item in list}
+
+```
+
+Another ex.
+
+```python
+
+new_dict = {new_key:new_values for (key, value) in dict.items()}
+
+
+```
+
+We can also add conditions on the end like we did with list comprehensions.
+
+```python
+
+passed_scores = {student:score for (student, score) in student_scores.items() if score >= 60}
+
+```
