@@ -113,3 +113,14 @@ We can also add conditions on the end like we did with list comprehensions.
 passed_scores = {student:score for (student, score) in student_scores.items() if score >= 60}
 
 ```
+
+Looping through data-frames.
+
+```python
+
+import pandas
+
+for (index, row) in student_data_frame.iterrows():
+    print(row.student)
+
+```
