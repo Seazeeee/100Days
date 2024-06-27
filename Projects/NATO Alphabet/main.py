@@ -5,7 +5,7 @@ import pandas
 # Read the data inside the CSV
 data = pandas.read_csv("Projects/NATO Alphabet/nato_phonetic_alphabet.csv")
 
-# Create a dictionary resulting in {"A": "Alpha", "B": "Bravo"} etc.
+# Create a dictionary resulting in {"A": "Alfa", "B": "Bravo"} etc.
 data_dict = {code.letter: code.code for (index, code) in data.iterrows()}
 
 # Get the user input.
@@ -22,4 +22,5 @@ in_data = [
     if letters.upper() in data_dict.keys()
 ]
 
+# Print given list.
 print(in_data)
