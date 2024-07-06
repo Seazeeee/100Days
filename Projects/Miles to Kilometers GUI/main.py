@@ -31,6 +31,11 @@ miles_label = tkinter.Label()
 miles_label.config(text="Km")
 miles_label.grid(column=3, row=1)
 
+# Results
+return_value = tkinter.Label()
+return_value.config(text=0)
+return_value.grid(column=1, row=1)
+
 # Creation of button
 
 
@@ -38,9 +43,7 @@ def get_km():
     miles_amount = int(miles_entry.get())
     final_km = round(miles_amount * 1.609)
 
-    return_value = tkinter.Label()
     return_value.config(text=final_km)
-    return_value.grid(column=1, row=1)
 
 
 calc_button = tkinter.Button(text="Calculate", command=get_km)
