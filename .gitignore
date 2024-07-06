@@ -397,6 +397,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-# Todo File
-
-TODO.md
+Ignore/*
