@@ -4,6 +4,18 @@ import tkinter
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
+
+def save_password():
+    with open("Ignore/data.txt", encoding="utf-8", mode="a") as file:
+        file.writelines(
+            f"{website_entry.get()} | {email_entry.get()} | {pass_entry.get()}\n"
+        )
+
+        website_entry.delete(0, tkinter.END)
+        email_entry.delete(0, tkinter.END)
+        pass_entry.delete(0, tkinter.END)
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 
 window = tkinter.Tk()
@@ -33,9 +45,11 @@ pass_label.grid(column=0, row=3)
 
 website_entry = tkinter.Entry(width=35)
 website_entry.grid(column=1, row=1, columnspan=2, sticky="w")
+website_entry.focus()
 
 email_entry = tkinter.Entry(width=35)
 email_entry.grid(column=1, row=2, columnspan=2, sticky="w")
+email_entry.insert(tkinter.END, "matt@email.com")
 
 pass_entry = tkinter.Entry(width=21, justify="left")
 pass_entry.grid(column=1, row=3, sticky="w")
@@ -48,7 +62,7 @@ generate_button = tkinter.Button(
 generate_button.grid(column=2, row=3)
 
 add_button = tkinter.Button(
-    text="Add", fg="black", border=0, justify="center", width=35
+    text="Add", fg="black", border=0, justify="center", width=35, command=save_password
 )
 add_button.grid(column=1, row=4, columnspan=2, sticky="w")
 
