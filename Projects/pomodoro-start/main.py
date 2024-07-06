@@ -10,14 +10,41 @@ FONT_NAME = "Courier"
 WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
+reps = 0
+timer = None
 
 # ---------------------------- TIMER RESET ------------------------------- #
+
+
+def reset_timer():
+
+    window.after_cancel(timer)
+    canvas.itemconfig(timer_text, text="00:00")
+    timer_label.config(text="Timer", fg=GREEN)
+    check_label.config(text="")
+    global reps
+    reps = 0
+
 
 # ---------------------------- TIMER MECHANISM ------------------------------- #
 
 
 def start_timer():
-    countdown(5 * 60)
+    global reps
+    reps += 1
+    work_sec = WORK_MIN * 60
+    short_break_sec = SHORT_BREAK_MIN * 60
+    long_break_sec = LONG_BREAK_MIN * 60
+
+    if (reps % 8) == 0:
+        countdown(long_break_sec)
+        timer_label.config(text="Break", fg=RED)
+    elif (reps % 2) == 0:
+        countdown(short_break_sec)
+        timer_label.config(text="Break", fg=GREEN)
+    else:
+        countdown(work_sec)
+        timer_label.config(text="Work", fg=GREEN)
 
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
@@ -27,10 +54,17 @@ def countdown(count):
 
     count_min = math.floor(count / 60)
     count_sec = count % 60
+    if count_sec < 10:
+        count_sec = f"0{count_sec}"
 
     canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
     if count > 0:
-        window.after(1000, countdown, count - 1)
+        global timer
+        timer = window.after(1000, countdown, count - 1)
+    else:
+        start_timer()
+        if reps % 2 == 0 or reps % 8 == 0:
+            check_label["text"] += "✔"
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -47,7 +81,7 @@ timer_label.config(
 timer_label.grid(column=1, row=1)
 
 check_label = tkinter.Label()
-check_label.config(fg=GREEN, text="✔", background=YELLOW, font=(FONT_NAME, 20))
+check_label.config(fg=GREEN, background=YELLOW, font=(FONT_NAME, 20))
 check_label.grid(column=1, row=4)
 
 canvas = tkinter.Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
@@ -77,6 +111,7 @@ reset_button = tkinter.Button(
     background=YELLOW,
     border=0,
     justify="center",
+    command=reset_timer,
 )
 
 reset_button.grid(column=2, row=3)
