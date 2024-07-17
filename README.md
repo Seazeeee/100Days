@@ -32,3 +32,7 @@ Here to Hoping!
   focusing on trying to at least open up VSCode everyday and right something. I have also started
   mySQL which is taking up more of my time. Im going to keep pushing myself forward because I
   believe I am improving on all my skills. Hopeful to have a better resume by the end of the summer.
+
+### 7/17/24
+
+- Took a small few day break due to school work and a unexpected surgery that we had to go through. Getting back now but slowed down the progress drastically due to the MySQL segments and the CS50 that I am going through to hopefully refresh my brain on the theory I learned way back in my Freshman and Sophomore years at college. Still pushing through!
